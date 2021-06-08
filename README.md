@@ -13,7 +13,7 @@ Project UAS PTIK 2019 Semester 4. Mata kuliah Pemrograman Website (Pemweb)
 |----------|-----------------------------|----------|
 | K3519043 | Jannah Pristya Nandya Putri |    A     |
 | K3519067 | Pratiwi Ajeng Safitri       |    A     |
-| K3519066 | Muhammad Ilyas              |    B     |
+| K35190 | Muhammad Ilyas              |    B     |
 | K3519066 | Philip Purwoko Adi Panuntun |    B     |
 
 ### Konfigurasi
