@@ -9,12 +9,12 @@ Project UAS PTIK 2019 Semester 4. Mata kuliah Pemrograman Website (Pemweb)
 
 ### Anggota Kelompok
 
-| NIM      | NAMA                        |
-|----------|-----------------------------|
-| K3519066 | Philip Purwoko Adi Panuntun |
-| K3519066 | Philip Purwoko Adi Panuntun |
-| K3519066 | Philip Purwoko Adi Panuntun |
-| K3519066 | Philip Purwoko Adi Panuntun |
+| NIM      | NAMA                        | Kelas    |
+|----------|-----------------------------|----------|
+| K3519043 | Jannah Pristya Nandya Putri |    A     |
+| K3519067 | Pratiwi Ajeng Safitri       |    A     |
+| K3519066 | Muhammad Ilyas              |    B     |
+| K3519066 | Philip Purwoko Adi Panuntun |    B     |
 
 ### Konfigurasi
 Rename file `config.placeholder.php` menjadi `config.php` dan isikan credential
