@@ -13,7 +13,7 @@
 			$id = $_GET['id'];
 
 			//query ke database SELECT tabel movies berdasarkan id = $id
-			$select = mysqli_query($koneksi, "SELECT * FROM movies WHERE id='$id'") or die(mysqli_error($koneksi));
+			$select = mysqli_query($mysqli, "SELECT * FROM movies WHERE id='$id'") or die(mysqli_error($mysqli));
 
 			//jika hasil query = 0 maka muncul pesan error
 			if(mysqli_num_rows($select) == 0){
@@ -36,7 +36,7 @@
 			$video_id		= $_POST['video_id'];
 			$img_url		= $_POST['img_url'];
 
-			$sql = mysqli_query($koneksi, "UPDATE movies SET title='$title', category='$category', description='$description', video_id='$video_id', img_url='$img_url' WHERE id='$id'") or die(mysqli_error($koneksi));
+			$sql = mysqli_query($mysqli, "UPDATE movies SET title='$title', category='$category', description='$description', video_id='$video_id', img_url='$img_url' WHERE id='$id'") or die(mysqli_error($mysqli));
 
 			if($sql){
 				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil_film";</script>';

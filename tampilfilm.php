@@ -25,7 +25,7 @@ include('config.php');
 			<tbody>
 				<?php
 				//query ke database SELECT tabel movies urut berdasarkan id yang paling besar
-				$sql = mysqli_query($koneksi, "SELECT * FROM movies ORDER BY id DESC") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($mysqli, "SELECT * FROM movies ORDER BY id DESC") or die(mysqli_error($mysqli));
 				//jika query diatas menghasilkan nilai > 0 maka menjalankan script di bawah if...
 				if(mysqli_num_rows($sql) > 0){
 					//membuat variabel $no untuk menyimpan nomor urut

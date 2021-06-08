@@ -4,17 +4,16 @@
 		<hr>
 		<?php
 		if(isset($_POST['submit'])){
-			$id				= $_POST['id'];
 			$title			= $_POST['title'];
 			$category		= $_POST['category'];
 			$description	= $_POST['description'];
 			$video_id		= $_POST['video_id'];
 			$img_url		= $_POST['img_url'];
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM movies WHERE id='$id'") or die(mysqli_error($koneksi));
+			$cek = mysqli_query($mysqli, "SELECT * FROM movies WHERE title='$title'") or die(mysqli_error($mysqli));
 
 			if(mysqli_num_rows($cek) == 0){
-				$sql = mysqli_query($koneksi, "INSERT INTO movies(id, title, category, description, video_id, img_url) VALUES('$id', '$title', '$category', '$description', '$video_id', '$img_url')") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($mysqli, "INSERT INTO movies(title, category, description, video_id, img_url) VALUES('$title', '$category', '$description', '$video_id', '$img_url')") or die(mysqli_error($mysqli));
 
 				if($sql){
 					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_film";</script>';
@@ -22,18 +21,12 @@
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
 			}else{
-				echo '<div class="alert alert-warning">Gagal, id sudah terdaftar.</div>';
+				echo '<div class="alert alert-warning">Gagal, Movie sudah terdaftar.</div>';
 			}
 		}
 		?>
 
 		<form action="index.php?page=tambah_film" method="post">
-			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Id</label>
-				<div class="col-md-6 col-sm-6 ">
-					<input type="text" name="id" class="form-control" size="4" required>
-				</div>
-			</div>
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Title</label>
 				<div class="col-md-6 col-sm-6">

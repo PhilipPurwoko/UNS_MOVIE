@@ -1,9 +1,12 @@
 <?php
-//koneksi ke database mysql,
-$koneksi = mysqli_connect("localhost","root","","bioskop");
+	define('DB_SERVER', 'localhost:3307');
+	define('DB_USERNAME', 'root');
+	define('DB_PASSWORD', 'master');
+	define('DB_NAME', 'movie');
 
-//cek jika koneksi ke mysql gagal, maka akan tampil pesan berikut
-if (mysqli_connect_errno()){
-	echo "Gagal melakukan koneksi ke MySQL: " . mysqli_connect_error();
-}
+	$mysqli = new mysqli(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
+
+	if ($mysqli === false) {
+		die("ERROR: Could not connect. " . $mysqli->connect_error);
+	}
 ?>
