@@ -18,3 +18,9 @@ Project UAS PTIK 2019 Semester 4. Mata kuliah Pemrograman Website (Pemweb)
 
 ### Konfigurasi
 Rename file `config.placeholder.php` menjadi `config.php` dan isikan credential
+
+### Tutorial GIT
+1. Clone repository ini. Buka `cmd`, menuju folder `xampp/htdocs/`. Jalankan git clone `https://github.com/PhilipPurwoko/UNS_MOVIE.git`. Buka folder `UNS_MOVIE` di dalam folder `htdocs`. Contoh : Xampp saya ada di `C:` maka saya buka cmd, kemudian cd `C:xampp/htdocs/`
+2. Untuk melakukan pull / download konten updatean terbaru dari repo github, jalankan `git pull origin main` di folder `UNS_MOVIE`
+3. Silakan koding sesuai pembagian tugas, kalau sudah selesai simpan perubahan file via git dengan `git add .` kemudian `git commit -m "<ISIKAN_NIM>-<ISIKAN_NAMAMU>"`. Contoh : `git commit -m "K3519066-PhilipPurwoko"`
+4. Untuk melakukan push / upload hasil codingan kalian ke repo github ini, jalankan `git push origin main`  di folder `UNS_MOVIE`
