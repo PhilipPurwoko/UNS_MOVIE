@@ -1,4 +1,16 @@
-<?php include('config.php'); ?>
+<?php 
+// Ngecek jika user admin
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    require_once('config.php');
+    $users = $mysqli->query("SELECT * FROM users WHERE username='" . $_SESSION["username"] . "'");
+    $isAdmin = $users->fetch_assoc()['is_admin'] == 1;
+    if ($isAdmin == false) {
+      header("location: /");
+    }
+} else {
+    header("location: /");
+}
+?>
 
 		<center><font size="6">Tambah Data</font></center>
 		<hr>
@@ -16,7 +28,7 @@
 				$sql = mysqli_query($mysqli, "INSERT INTO movies(title, category, description, video_id, img_url) VALUES('$title', '$category', '$description', '$video_id', '$img_url')") or die(mysqli_error($mysqli));
 
 				if($sql){
-					echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_film";</script>';
+					echo '<script>alert("Berhasil menambahkan data."); document.location="admin.php?page=tampil_film";</script>';
 				}else{
 					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
 				}
@@ -26,7 +38,7 @@
 		}
 		?>
 
-		<form action="index.php?page=tambah_film" method="post">
+		<form action="admin.php?page=tambah_film" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Title</label>
 				<div class="col-md-6 col-sm-6">

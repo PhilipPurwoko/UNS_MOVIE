@@ -1,4 +1,16 @@
-<?php include('config.php'); ?>
+<?php
+// Ngecek jika user admin
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    require_once('config.php');
+    $users = $mysqli->query("SELECT * FROM users WHERE username='" . $_SESSION["username"] . "'");
+    $isAdmin = $users->fetch_assoc()['is_admin'] == 1;
+    if ($isAdmin == false) {
+      header("location: /");
+    }
+} else {
+    header("location: /");
+}
+?>
 
 
 	<div class="container" style="margin-top:20px">
@@ -39,14 +51,14 @@
 			$sql = mysqli_query($mysqli, "UPDATE movies SET title='$title', category='$category', description='$description', video_id='$video_id', img_url='$img_url' WHERE id='$id'") or die(mysqli_error($mysqli));
 
 			if($sql){
-				echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil_film";</script>';
+				echo '<script>alert("Berhasil menyimpan data."); document.location="admin.php?page=tampil_film";</script>';
 			}else{
 				echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
 			}
 		}
 		?>
 
-		<form action="index.php?page=edit_film&id=<?php echo $id; ?>" method="post">
+		<form action="admin.php?page=edit_film&id=<?php echo $id; ?>" method="post">
 			<div class="item form-group">
 				<label class="col-form-label col-md-3 col-sm-3 label-align">Id</label>
 				<div class="col-md-6 col-sm-6">
@@ -96,7 +108,7 @@
 			<div class="item form-group">
 				<div class="col-md-6 col-sm-6 offset-md-3">
 					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-					<a href="index.php?page=tampil_film" class="btn btn-warning">Kembali</a>
+					<a href="admin.php?page=tampil_film" class="btn btn-warning">Kembali</a>
 				</div>
 			</div>
 		</form>

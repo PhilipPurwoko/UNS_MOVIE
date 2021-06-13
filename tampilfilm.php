@@ -1,13 +1,22 @@
 <?php
-//memasukkan file config.php
-include('config.php');
+// Ngecek jika user admin
+if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
+    require_once('config.php');
+    $users = $mysqli->query("SELECT * FROM users WHERE username='" . $_SESSION["username"] . "'");
+    $isAdmin = $users->fetch_assoc()['is_admin'] == 1;
+    if ($isAdmin == false) {
+      header("location: /");
+    }
+} else {
+    header("location: /");
+}
 ?>
 
 
 	<div class="container" style="margin-top:20px">
 		<center><font size="6">Data Film</font></center>
 		<hr>
-		<a href="index.php?page=tambah_film"><button class="btn btn-dark right">Tambah Data</button></a>
+		<a href="admin.php?page=tambah_film"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action">
 			<thead>
@@ -43,7 +52,7 @@ include('config.php');
 							<td>'.$data['video_id'].'</td>
 							<td>'.$data['img_url'].'</td>
 							<td>
-								<a href="index.php?page=edit_film&id='.$data['id'].'" class="btn btn-secondary btn-sm">Edit</a>
+								<a href="admin.php?page=edit_film&id='.$data['id'].'" class="btn btn-secondary btn-sm">Edit</a>
 								<a href="deletefilm.php?id='.$data['id'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>

@@ -1,6 +1,6 @@
 <?php
-//include file config.php
-include('config.php');
+// Ngecek jika user admin
+require_once('config.php');
 
 //jika benar mendapatkan GET id dari URL
 if(isset($_GET['id'])){
@@ -15,15 +15,15 @@ if(isset($_GET['id'])){
 		//query ke database DELETE untuk menghapus data dengan kondisi id=$id
 		$del = mysqli_query($mysqli, "DELETE FROM movies WHERE id='$id'") or die(mysqli_error($mysqli));
 		if($del){
-			echo '<script>alert("Berhasil menghapus data."); document.location="index.php?page=tampil_film";</script>';
+			echo '<script>alert("Berhasil menghapus data."); document.location="admin.php?page=tampil_film";</script>';
 		}else{
-			echo '<script>alert("Gagal menghapus data."); document.location="index.php?page=tampil_film";</script>';
+			echo '<script>alert("Gagal menghapus data."); document.location="admin.php?page=tampil_film";</script>';
 		}
 	}else{
-		echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil_film";</script>';
+		echo '<script>alert("ID tidak ditemukan di database."); document.location="admin.php?page=tampil_film";</script>';
 	}
 }else{
-	echo '<script>alert("ID tidak ditemukan di database."); document.location="index.php?page=tampil_film";</script>';
+	echo '<script>alert("ID tidak ditemukan di database."); document.location="admin.php?page=tampil_film";</script>';
 }
 
 ?>
