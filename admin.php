@@ -70,11 +70,13 @@ if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) {
               <div class="menu_section">
                 <ul class="nav side-menu">
                   
-                  <li><a href="#"><i class="fa fa-deskt op"></i> Movie <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-deskt op"></i> Manage Movie <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="admin.php?page=tampil_film">View Data</a></li>
                       <li><a href="admin.php?page=tambah_film">Add Data</a></li>
                     </ul>
+                  </li>
+                  <li><a href="/manage-user.php"><i class="fa fa-deskt op"></i> Manage User</a>
                   </li>
                 </ul>
               </div>

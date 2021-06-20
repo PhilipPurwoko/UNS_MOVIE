@@ -31,6 +31,9 @@
           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           	<?php
           		if (isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true) { ?>
+          			<li class="nav-item">
+	              		<a class="nav-link" href="/reset-password.php">Reset Password</a>
+	            	</li> 
 				  	<li class="nav-item">
 	              		<a class="nav-link" href="/logout.php">Logout</a>
 	            	</li>  
@@ -58,7 +61,7 @@
 						<h5><?= $data['title'] ?></h5>
 						<p class="text-muted"><?= $data['category'] ?></p>
 						<p><?= $data['description'] ?></p>
-						<button class="btn btn-danger">WATCH</button>
+						<a class="btn btn-danger" href="/detail-movie.php?id=<?= $data['id'] ?>">WATCH</a>
 					</div>
 				</div>	
 			</div>
